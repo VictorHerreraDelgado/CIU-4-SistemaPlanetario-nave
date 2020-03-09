@@ -21,12 +21,15 @@ Al pasar a la segunda vista, el usuario pasará a controlar la nave de distintas
 Desde la vista original se podrá observar la nave en su última posición en el sistema. En caso de no querer verla en la pantalla o querer volver a la posición inicial podrá resetear su posición y vista.
 
 ## Decisiones tomadas
+Se ha decidido implementar el reseteo de la nave en vez de ponerle límites al usuario para darle total control al usuario pudiendo volver en caso de tener problemas.
+La vista de la nave en cuanto a su movimiento vertical se ha definido sin implementar rotación sobre ella manteniendo un estilo de propulsión en vertical por parte de la nave para facilitar su movimiento.
 
 ## Controles
 - **Enter** : Cambia la vista entre general y nave.
 - **Flechas** de control : Rotan la nave horizontalmente o cambian el punto de mira verticalmente.
 - **Espacio** : Mueve la nave hacia el punto de mira.
 - **Tecla R** : Resetea la posición y vista de la nave.
+- **Tecla P** : CAmbiar vista de la nave entre primera persona y una aproximación a tercera persona.
 
 ## Resumen del código
 El código consiste en dos archivos:
