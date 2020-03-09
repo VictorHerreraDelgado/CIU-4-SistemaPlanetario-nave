@@ -16,7 +16,7 @@ Dos de los planetas (Earth y Chained planet) presentan también astros girando a
 Se muestra el nombre de cada uno de los planetas siempre al usuario, aunque en el caso de los astros, debido a su movimiento sus nombres solo podrán ser vistos en algunos casos.
 Cabe destacar por último que se le ha aplicado una textura a cada cuerpo que forma el sistema planetario
 
-Al pasar a la segunda vista, el usuario pasará a controlar la nave de distintas formas. Podrá rotar la nave horizontalmente conisguiendo rotar la vista también, así como mover la vista arriba o abajo con las flechas de control. Usando la tecla espacio la nave se moverá a donde apunte la vista.
+Al pasar a la segunda vista, el usuario pasará a controlar la nave de distintas formas. Podrá rotar la nave horizontalmente consiguiendo rotar la vista también, así como mover la vista arriba o abajo con las flechas de control. Usando la tecla espacio la nave se moverá a donde apunte la vista.
 
 Desde la vista original se podrá observar la nave en su última posición en el sistema. En caso de no querer verla en la pantalla o querer volver a la posición inicial podrá resetear su posición y vista.
 
@@ -30,7 +30,8 @@ Desde la vista original se podrá observar la nave en su última posición en el
 El código consiste en dos archivos:
 
 - El archivo **Practica4**, que es el principal y por lo tanto encargado de crear, cargar e inicializar los componentes necesarios para el funcionamiento del programa (crear planetas, cargar imágenes, etc.) así como de mandar a dibujar el sistema planetario en pantalla. También se encarga de la posición de la nave y su respectivo movimiento, así como de plasmarlo en la vista.
-- El archivo **Planet**, que es la representación de un cuerpo en el sistema solar (planeta,astro o estrella). Este no solo inicializará sus características y se podrá dibujar a sí mismo a partir de estas, sino que además guardará una lista con los cuerpos que giran alrededor suya para que se dibujen cuando lo manden a dibujarse a si mismo.
+Teniendo el punto de mira y el punto de posición de la vista, el programa se encarga de calcular el vector dirección para los movimientos hacia adelante de la nave. Para la rotación, en el caso de la vista vertical simplemente se cambian los valores de la Y mientras que para la rotación horizontal, se hace uso de una rotación de un punto alrededor del eje y basándonos en lo utilizado en la [práctica 2](https://github.com/VictorHerreraDelgado/CIU-2-Generador3D)
+- El archivo **Planet**, que es la representación de un cuerpo en el sistema solar (planeta ,astro o estrella). Este no solo inicializará sus características y se podrá dibujar a sí mismo a partir de estas, sino que además guardará una lista con los cuerpos que giran alrededor suya para que se dibujen cuando lo manden a dibujarse a si mismo.
 Por lo tanto, al dibujarse solo se llama al método de dibujo de la estrella y los demás cuerpos se dibujarán derivando de este.
 
 ## Funcionamiento
