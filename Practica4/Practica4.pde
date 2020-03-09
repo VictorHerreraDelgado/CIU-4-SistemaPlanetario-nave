@@ -2,7 +2,7 @@ import java.awt.Point;
 PShape spaceship;
 boolean cameraMode;
 boolean[] keys = new boolean[5];
-
+boolean viewP;
 // Posición de la camara/nave
 float px,py,pz;
 // Posición del punto de vista
@@ -39,6 +39,7 @@ void setup()
   restartSpaceship();
   velVar = 0;
   cameraMode = false;
+  viewP = false;
   }
 
 PVector rotatePointX(PVector point,int dir) {
@@ -104,10 +105,11 @@ void draw(){
 
     camera(px,py,pz, ejeVx, ejeVy, ejeVz, 0, 1, 0); 
     dirx = ejeVx - px; diry = ejeVy - py; dirz = ejeVz - pz;
-    float distJ = 10;
+    float distJ = 10 ;
     translate(px + dirx/distJ,(py + diry/distJ) ,pz + dirz/distJ);
-    sphere(1);
-    shape(spaceship);
+    if(viewP)shape(spaceship);
+    else sphere(1);
+    
     
     translate(-(px + dirx/distJ),-(py + diry/distJ) ,-(pz + dirz/distJ));
     translate(0,0,-(height/2.0) / tan(PI*30.0 / 180.0));
@@ -143,6 +145,10 @@ void keyReleased() {
   if (keyCode == LEFT )keys[2] = false;
   if (keyCode == RIGHT)keys[3] = false;
   if(key == ' ') keys[4]=false;
+  if(key == 'P' || key == 'p'){
+    if (viewP) viewP = false;
+    else viewP = true;
+  }
 }
 
 void keyPressed() {
