@@ -20,6 +20,8 @@ Al pasar a la segunda vista, el usuario pasará a controlar la nave de distintas
 
 Desde la vista original se podrá observar la nave en su última posición en el sistema. En caso de no querer verla en la pantalla o querer volver a la posición inicial podrá resetear su posición y vista.
 
+## Decisiones tomadas
+
 ## Controles
 - **Enter** : Cambia la vista entre general y nave.
 - **Flechas** de control : Rotan la nave horizontalmente o cambian el punto de mira verticalmente.
