@@ -16,9 +16,11 @@ Dos de los planetas (Earth y Chained planet) presentan también astros girando a
 Se muestra el nombre de cada uno de los planetas siempre al usuario, aunque en el caso de los astros, debido a su movimiento sus nombres solo podrán ser vistos en algunos casos.
 Cabe destacar por último que se le ha aplicado una textura a cada cuerpo que forma el sistema planetario
 
-Al pasar a la segunda vista, el usuario pasará a controlar la nave de distintas formas. Podrá rotar la nave horizontalmente consiguiendo rotar la vista también, así como mover la vista arriba o abajo con las flechas de control. Usando la tecla espacio la nave se moverá a donde apunte la vista.
+Al pasar a la segunda vista, el usuario pasará a controlar la nave de distintas formas: podrá rotar la nave horizontalmente consiguiendo rotar la vista también, así como mover el punto de mira arriba o abajo, ambas acciones con las flechas de control. Usando la tecla espacio la nave se moverá a donde apunte la vista (por ejemplo, viendo la nave desde arriba hacia abajo, la nave empezará a bajar hacia la dirección apuntada). La vista desde la nave puede ser viendo la nave desde lejos o en primera persona (usando una esfera como punto de mira).
 
-Desde la vista original se podrá observar la nave en su última posición en el sistema. En caso de no querer verla en la pantalla o querer volver a la posición inicial podrá resetear su posición y vista.
+Desde la vista original se podrá observar la nave en su última posición en el sistema. 
+
+En caso de no querer verla en la pantalla o querer volver a la posición inicial podrá resetear su posición y vista.
 
 ## Decisiones tomadas
 Se ha decidido implementar el reseteo de la nave en vez de ponerle límites al usuario para darle total control al usuario pudiendo volver en caso de tener problemas.
