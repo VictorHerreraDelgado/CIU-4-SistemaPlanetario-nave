@@ -2,7 +2,7 @@ import java.awt.Point;
 PShape spaceship;
 boolean cameraMode;
 boolean[] keys = new boolean[5];
-boolean viewP;
+boolean viewP,help;
 // Posición de la camara/nave
 float px,py,pz;
 // Posición del punto de vista
@@ -11,7 +11,7 @@ float ejeVx,ejeVy,ejeVz;
 float dirx, diry,dirz,velVar;
 
 float angleJump;
-float angH;
+float angH,angV;
 
 PImage sunImage,chainImage,earthImage,moonImage,waterImage,smokeImage,dustImage,universe;
 Planet sun,earth,chain,moon,miniChain1,miniChain2,water,smoke, dust;
@@ -22,6 +22,7 @@ void setup()
   spaceship = loadShape("Quarren Coyote Ship.obj");
   spaceship.scale(0.1);
   angH = 0;
+  angV = 0;
   fullScreen(P3D);
   stroke(0);
   sunImage = loadImage("sun.png");
@@ -40,6 +41,7 @@ void setup()
   velVar = 0;
   cameraMode = false;
   viewP = false;
+  help = true;
   }
 
 PVector rotatePointX(PVector point,int dir) {
@@ -110,7 +112,6 @@ void draw(){
     if(viewP)shape(spaceship);
     else sphere(1);
     
-    
     translate(-(px + dirx/distJ),-(py + diry/distJ) ,-(pz + dirz/distJ));
     translate(0,0,-(height/2.0) / tan(PI*30.0 / 180.0));
     drawPlanets();
@@ -118,7 +119,14 @@ void draw(){
     
     translate(width/2,height/2,+ (height/2.0) / tan(PI*30.0 / 180.0));
     camera(0,0,(height/2.0) / tan(PI*30.0 / 180.0),0,0, 0, 0, 1, 0); 
-    
+    if(help){
+      textSize(10);
+      text("Pulsa enter para cambiar la vista y p para alternar entre 1º y 3º persona",0,35,700);
+      text("Usa las flechas de control como la nave para orientarte y la barra de espacio para avanzar",0,50,700);
+      text("Pulsa R para resetear la posición de la nave",0,65,700);
+      textSize(15);
+      text("Pulsa cualquier tecla para continuar",0,85,700);
+    }
     translate(+px,+py,pz + (height/2.0) / tan(PI*30.0 / 180.0));
     shape(spaceship);
     translate(-px,-py ,-pz - (height/2.0) / tan(PI*30.0 / 180.0));
@@ -148,24 +156,25 @@ void keyReleased() {
   if(key == 'P' || key == 'p'){
     if (viewP) viewP = false;
     else viewP = true;
+    help = false;
   }
 }
 
 void keyPressed() {
-  if (keyCode == UP) {keys[0] = true;;
+  if (keyCode == UP) {keys[0] = true; help = false;
                       }
-  else if (keyCode == DOWN) {keys[1] = true;}
+  else if (keyCode == DOWN) {keys[1] = true; help = false;}
 
-  if (keyCode == LEFT){ keys[2] = true;
+  if (keyCode == LEFT){ keys[2] = true; help = false;
                       }
   
-  else if (keyCode == RIGHT ){keys[3] = true;}
-  if(key == ' ') keys[4]=true;
-  if (keyCode == ENTER && cameraMode) cameraMode = false;
-  else if (keyCode == ENTER && !cameraMode) cameraMode = true;
+  else if (keyCode == RIGHT ){keys[3] = true; help = false;}
+  if(key == ' '){ keys[4]=true;help = false;}
+  if (keyCode == ENTER && cameraMode){ cameraMode = false; help = false;}
+  else if (keyCode == ENTER && !cameraMode){ cameraMode = true; help = false;}
   
   if (key == 'R' || key == 'r'){
-    restartSpaceship(); 
+    restartSpaceship(); help = false;
   }
 }
 
@@ -173,11 +182,13 @@ void keyControl(){
   if(keys[0]) {
       if(ejeVy - py >= py - 1000 ){
         ejeVy -=10;
+        angV -=1;
       }
     };
     if(keys[1]) {
       if(ejeVy + py <= py + 1000 ){
         ejeVy +=10;
+        angV += 1;
       }
     };
     if(keys[3]){
